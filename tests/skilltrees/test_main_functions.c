@@ -139,7 +139,7 @@ Test(skilltrees_main_functions, push_active_skill_equal) {
     cr_assert_eq(skill_created,0,"push_active_skill didn't add skill to list.");
 }
 
-//Checks that passive skill can be pushed when cur_num_active < max_num_active,
+//Checks that passive skill can be pushed when cur_num_passive < max_num_passive,
 Test(skilltrees_main_functions, push_passive_skill_less) {
     allskills_t* skill_list = create_skill_list();
     cr_assert_not_null(skill_list, "create_skill_list() failed");
@@ -148,7 +148,7 @@ Test(skilltrees_main_functions, push_passive_skill_less) {
     cr_assert_eq(skill_created,0,"push_passive_skill didn't add skill to list.");
 }
 
-//Checks that passive skill can be pushed when cur_num_active == max_num_active,
+//Checks that passive skill can be pushed when cur_num_passive == max_num_passive,
 Test(skilltrees_main_functions, push_passive_skill_equal) {
     allskills_t* skill_list = create_skill_list();
     cr_assert_not_null(skill_list, "create_skill_list() failed");
