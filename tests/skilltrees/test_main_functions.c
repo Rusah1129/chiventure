@@ -175,7 +175,8 @@ Test(skilltrees_main_functions, has_active_skill_in_list) {
     skill_t* skill = create_dummy_skill();
     push_active_skill(skill_list, skill);
     int skill_index = has_active_skill(skill_list, skill);
-    cr_assert_eq(skill_index,0,"has_active_skill returned incorrect index, or no index at all.");
+    cr_assert_eq(skill_index,0,"has_active_skill returned incorrect index, "
+                               "or no index at all.");
 }
 //Checks that has_active_skill returns proper index of skill,
 //in case where skill is NOT in skill list.
@@ -184,7 +185,8 @@ Test(skilltrees_main_functions, has_active_skill_not_in_list) {
     cr_assert_not_null(skill_list, "create_skill_list() failed");
     skill_t* skill = create_dummy_skill();
     int skill_index = has_active_skill(skill_list, skill);
-    cr_assert_eq(skill_index,-1,"has_active_skill returned an index, but its not in the list...");
+    cr_assert_eq(skill_index,-1,"has_active_skill returned an index, "
+                                "but its not in the list...");
 }
 
 //Checks that has_passive_skill returns proper index of skill,
@@ -195,7 +197,8 @@ Test(skilltrees_main_functions, has_passive_skill_in_list) {
     skill_t* skill = create_dummy_skill();
     push_passive_skill(skill_list, skill);
     int skill_index = has_passive_skill(skill_list, skill);
-    cr_assert_eq(skill_index,0,"has_passive_skill returned incorrect index, or no index at all.");
+    cr_assert_eq(skill_index,0,"has_passive_skill returned incorrect index, "
+                               "or no index at all.");
 }
 //Checks that has_passive_skill returns proper index of skill,
 //in case where skill is NOT in skill list.
@@ -204,10 +207,11 @@ Test(skilltrees_main_functions, has_passive_skill_not_in_list) {
     cr_assert_not_null(skill_list, "create_skill_list() failed");
     skill_t* skill = create_dummy_skill();
     int skill_index = has_passive_skill(skill_list, skill);
-    cr_assert_eq(skill_index,-1,"has_passive_skill returned an index, but its not in the list...");
+    cr_assert_eq(skill_index,-1,"has_passive_skill returned an index, "
+                                "but its not in the list...");
 }
 
-//checks that pop_active_skill pops skill in case that 
+//checks that pop_active_skill pops skill in case that
 //skill is in list initially.
 Test(skilltrees_main_functions, pop_active_skill_in_list) {
     allskills_t* skill_list = create_skill_list();
@@ -215,20 +219,23 @@ Test(skilltrees_main_functions, pop_active_skill_in_list) {
     skill_t* skill = create_dummy_skill();
     push_active_skill(skill_list, skill);
     int popped = pop_active_skill(skill_list, skill);
-    cr_assert_eq(popped,0,"active skill should be popped, but function assumes its not in skill list...");
+    cr_assert_eq(popped,0,"active skill should be popped, but function assumes "
+                          "its not in skill list...");
 }
 
-//checks that pop_active_skill pops skill in case that 
+//checks that pop_active_skill pops skill in case that
 //skill is NOT in list initially.
 Test(skilltrees_main_functions, pop_active_skill_not_in_list) {
     allskills_t* skill_list = create_skill_list();
     cr_assert_not_null(skill_list, "create_skill_list() failed");
     skill_t* skill = create_dummy_skill();
     int popped = pop_active_skill(skill_list, skill);
-    cr_assert_eq(popped,-1,"active skill shouldn't be able to be popped because its not in the list, but function acts like it is...");
+    cr_assert_eq(popped,-1,"active skill shouldn't be able to be popped "
+                           "because its not in the list, "
+                           "but function acts like it is...");
 }
 
-//checks that pop_passive_skill pops skill in case that 
+//checks that pop_passive_skill pops skill in case that
 //skill is in list initially.
 Test(skilltrees_main_functions, pop_passive_skill_in_list) {
     allskills_t* skill_list = create_skill_list();
@@ -236,15 +243,18 @@ Test(skilltrees_main_functions, pop_passive_skill_in_list) {
     skill_t* skill = create_dummy_skill();
     push_passive_skill(skill_list, skill);
     int popped = pop_passive_skill(skill_list, skill);
-    cr_assert_eq(popped,0,"passive skill should be popped, but function assumes its not in skill list...");
+    cr_assert_eq(popped,0,"passive skill should be popped, "
+                          "but function assumes its not in skill list...");
 }
 
-//checks that pop_passive_skill pops skill in case that 
+//checks that pop_passive_skill pops skill in case that
 //skill is NOT in list initially.
 Test(skilltrees_main_functions, pop_passive_skill_not_in_list) {
     allskills_t* skill_list = create_skill_list();
     cr_assert_not_null(skill_list, "create_skill_list() failed");
     skill_t* skill = create_dummy_skill();
     int popped = pop_passive_skill(skill_list, skill);
-    cr_assert_eq(popped,-1,"passive skill shouldn't be able to be popped because its not in the list, but function acts like it is...");
+    cr_assert_eq(popped,-1,"passive skill shouldn't be able to be popped "
+                           "because its not in the list, " 
+                           "but function acts like it is...");
 }
