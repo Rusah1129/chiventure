@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "battle/battle_flow.h"
+/* #include "battle/battle_logic.h" */
 
 /* see battle_flow.h */
 int start_battle(chiventure_ctx_battle_t *ctx, npc_enemy_t *npc_enemies, environment_t env)
@@ -12,8 +13,31 @@ int start_battle(chiventure_ctx_battle_t *ctx, npc_enemy_t *npc_enemies, environ
 
     // Set player, enemies, and battle structs for a new battle
     battle_t *b = set_battle(player, npc_enemies, env);
+    int winner;
+    // message with start of battle
+
+    // for loop in the battle
+    while ((winner = battle_over(p,e)) == 0) {
+        if (b->turn == PLAYER) {
+           // player move
+        } else if (b->turn == ENEMY) {
+           // enemy move
+        } else {
+           // error
+        }
+        // message with what happened
+    }
+    // end the battle
+    // message with what happened
 
     return SUCCESS;
+}
+
+/* see battle_flow.h */
+int end_battle(battle_t *b)
+{
+   // TO-DO
+   return 1;
 }
 
 /* see battle_flow.h */

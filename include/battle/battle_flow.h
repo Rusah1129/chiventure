@@ -65,4 +65,16 @@ combatant_t *set_enemies(npc_enemy_t *npc_enemies);
  */
 battle_t *set_battle(player_t *ctx_player, npc_enemy_t *npc_enemies,
                       environment_t env);
+
+/*
+ * Ends the battle by freeing structs and changing is_battle in ctx
+ *
+ * Parameters:
+ *  - b = the battle that is ending
+ *
+ * Returns:
+ *  - 0 if successful, 1 if error
+ *
+ */
+int end_battle(battle_t *b);
 #endif
